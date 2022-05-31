@@ -1,0 +1,46 @@
+{% extends 'todo/base.html'%}
+{%block title%}todo-form{%endblock%}
+{%block content%}
+{% if bool%}
+<form method="post" onsubmit="{%url 'todo:add_task'%}">
+    {% csrf_token %}
+    <span>task id :</span>
+<input name="id" value="{{task.id}}">
+<span>task name :</span>
+<input name="name" value="{{task.name}}">
+<span>is done :</span>
+
+    <select name="is_done" value="{{task.is_done}}">
+        {%if task.is_done%}
+        <option>True</option>
+        <option>False</option>
+        {%else%}
+        <option>False</option>
+        <option>True</option>
+        {%endif%}
+    </select>
+
+<span>task description :</span>
+<input class="description" value="{{task.description}}">
+<button type="submit" class="btn btn-success">save</button>
+</form>
+{%else%}
+<form method="post">
+    <span>task id :</span>
+<input name="id">
+<span>task name :</span>
+<input name="name">
+<span>is done :</span>
+
+    <select name="is_done" id="">
+        <option>True</option>
+        <option>False</option>
+    </select>
+
+<span>task description :</span>
+<input class="description">
+<button type="submit" class="btn btn-success">add</button>
+</form>
+{%endif%}
+
+{%endblock%}

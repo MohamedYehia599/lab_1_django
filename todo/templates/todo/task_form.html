@@ -1,0 +1,10 @@
+{% extends 'todo/base.html'%}
+{%block title%}todo-form{%endblock%}
+{%block content%}
+<form method="post">
+    {% csrf_token %}
+{{form}}
+    <button class="btn btn-success">add</button>
+</form>
+
+{%endblock%}

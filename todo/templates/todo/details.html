@@ -1,0 +1,14 @@
+{% extends 'todo/base.html'%}
+{%block title%}todo-details{%endblock%}
+{% block content%}
+<div class="card" ">
+  <div class="card-header">
+    Name : {{task.name|title}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">id : {{task.id}}</li>
+    <li class="list-group-item">is_done : {{task.is_done}}</li>
+    <li class="list-group-item">description : {{task.description}}</li>
+  </ul>
+</div>
+{%endblock%}
